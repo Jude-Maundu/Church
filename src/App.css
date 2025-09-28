@@ -1,38 +1,233 @@
-.App {
-  text-align: center;
+/* Side Menu */
+
+/* Custom background and animation */
+.custom-offcanvas {
+  background-color: #6f4e37 !important; /* dark brown */
+  color: white;
+  transition: transform 0.4s ease-in-out !important;
+  width: 220px !important; /* default for mobile */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Wider on medium+ screens */
+@media (min-width: 768px) {
+  .custom-offcanvas {
+    width: 280px !important; /* desktop/tablet */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Style links */
+.menu-link {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 50px;
+  background-color: #8b5e3c;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.menu-link:hover {
+  background-color: #a97142;
+  transform: translateX(5px);
+}
+
+
+/* Footer */
+
+.transition-footer {
+  transition: transform 0.4s ease-in-out;
+}
+
+.transition-footer.hide {
+  transform: translateY(100%);
+}
+
+.transition-footer.show {
+  transform: translateY(0);
+}
+/* HOME */
+.hover-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+}
+
+/* Glass Card Styling */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1); /* light glass */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+
+/* Glassmorphism Navbar - DEFAULT */
+.glass-navbar {
+  background: rgba(255, 255, 255, 0.08); /* Always glass */
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem auto;
+  width: 95%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* Floating effect */
+}
+
+/* Darker glass when scrolled */
+.glass-navbar.scrolled {
+  background: rgba(0, 0, 0, 0.45); /* darker, still transparent */
+  backdrop-filter: blur(18px) saturate(200%);
+  -webkit-backdrop-filter: blur(18px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+  /* Floating effect */
+/* box-shadow property removed because it was outside any selector */
+
+/* Shrinks on scroll */
+.glass-navbar.scrolled {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  /* Slightly stronger shadow when scrolled */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Logo size control */
+.nav-logo {
+  height: 50px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+.nav-logo.small {
+  height: 35px;
+}
+
+/* Nav links */
+.nav-link {
+  color: white !important;
+  font-weight: 500;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: #ecc047 !important; /* glowing cyan on hover/active */
+  text-shadow: 0 0 8px #ecc047;
+}
+
+/* Glass outline button */
+.btn-outline-light {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  transition: 0.3s;
+}
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: #00d4ff;
+  box-shadow: 0 0 12px #00d4ff;
+}
+
+
+
+/* Contact us */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+
+
+
+/* Singers of christ */
+ .singers-page {
+  color: #333;
+  line-height: 1.7;
+}
+
+.hero-img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.section-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  border-left: 4px solid #007bff;
+  padding-left: 10px;
+}
+
+p {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #007bff, #00d4ff);
+  border: none;
+  transition: transform 0.2s ease;
+}
+.btn-primary:hover {
+  transform: scale(1.05);
+}
+
+/* Upendo choir */
+
+.hero-section {
+  position: relative;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.hero-section .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.join-section {
+  position: relative;
+  /* background: url("choir-bg.jpg") no-repeat center center/cover;  */
+}
+.join-section .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Blessed voices */
+
+.hero-section {
+  position: relative;
+  color: white;
+}
+.hero-section .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.join-section {
+  position: relative;
+  /* /* background: url("choir-bg.jpg") no-repeat center center/cover; */
+}
+.join-section .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
 }
