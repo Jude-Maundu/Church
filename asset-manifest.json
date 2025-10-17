@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Jude-Maundu/Church/static/css/main.714064b3.css",
-    "main.js": "/Jude-Maundu/Church/static/js/main.5225c8f4.js",
-    "static/js/453.cb46ceae.chunk.js": "/Jude-Maundu/Church/static/js/453.cb46ceae.chunk.js",
-    "static/media/DSC_0176-scaled.jpg": "/Jude-Maundu/Church/static/media/DSC_0176-scaled.981866c5a7295522327b.jpg",
-    "static/media/fa-solid-900.woff2": "/Jude-Maundu/Church/static/media/fa-solid-900.0ae4e6254fc19607c79e.woff2",
-    "static/media/fa-brands-400.woff2": "/Jude-Maundu/Church/static/media/fa-brands-400.e7461d69dbbff1310a5c.woff2",
-    "static/media/fa-regular-400.woff2": "/Jude-Maundu/Church/static/media/fa-regular-400.1f38a564cd9eae27ebc3.woff2",
-    "static/media/fa-v4compatibility.woff2": "/Jude-Maundu/Church/static/media/fa-v4compatibility.661bd6b7245d5205d3e1.woff2",
-    "index.html": "/Jude-Maundu/Church/index.html",
-    "main.714064b3.css.map": "/Jude-Maundu/Church/static/css/main.714064b3.css.map",
-    "main.5225c8f4.js.map": "/Jude-Maundu/Church/static/js/main.5225c8f4.js.map",
-    "453.cb46ceae.chunk.js.map": "/Jude-Maundu/Church/static/js/453.cb46ceae.chunk.js.map"
+    "main.css": "/Church/static/css/main.c4a7fb04.css",
+    "main.js": "/Church/static/js/main.28d16df9.js",
+    "static/js/453.cb46ceae.chunk.js": "/Church/static/js/453.cb46ceae.chunk.js",
+    "static/media/DSC_0176-scaled.jpg": "/Church/static/media/DSC_0176-scaled.981866c5a7295522327b.jpg",
+    "static/media/fa-solid-900.woff2": "/Church/static/media/fa-solid-900.0ae4e6254fc19607c79e.woff2",
+    "static/media/fa-brands-400.woff2": "/Church/static/media/fa-brands-400.e7461d69dbbff1310a5c.woff2",
+    "static/media/fa-regular-400.woff2": "/Church/static/media/fa-regular-400.1f38a564cd9eae27ebc3.woff2",
+    "static/media/fa-v4compatibility.woff2": "/Church/static/media/fa-v4compatibility.661bd6b7245d5205d3e1.woff2",
+    "index.html": "/Church/index.html",
+    "main.c4a7fb04.css.map": "/Church/static/css/main.c4a7fb04.css.map",
+    "main.28d16df9.js.map": "/Church/static/js/main.28d16df9.js.map",
+    "453.cb46ceae.chunk.js.map": "/Church/static/js/453.cb46ceae.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.714064b3.css",
-    "static/js/main.5225c8f4.js"
+    "static/css/main.c4a7fb04.css",
+    "static/js/main.28d16df9.js"
   ]
 }
