@@ -13,7 +13,7 @@ import NewsAndEvents from "./Components/News&Events";
 import UpendoChoir from "./Components/Pages/Choirs/UpendoChoir";
 import BlessedVoicesChoir from "./Components/Pages/Choirs/BlessedVoicesChoir";
 import SingersForChrist from "./Components/Pages/Choirs/SingersForChrist";
-
+import infoCard from "./Components/InfoCard";
 // Jumuia Pages
 import StAnne from "./Components/Pages/Jumuias/St.Anne";
 import StAugustine from "./Components/Pages/Jumuias/St.Augustine";

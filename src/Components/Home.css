@@ -1,0 +1,154 @@
+.home-hero {
+  min-height: 100vh;
+  background-image: url('/public/DSC_0176-scaled.jpg'); /* Ensure the path is correct from your public folder */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 80px 20px;
+}
+
+.hero-content {
+  max-width: 750px;
+  background: rgba(255, 255, 255, 0.85);
+  transition: background 0.3s ease;
+}
+
+.hero-content:hover {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.hero-btn {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero-btn:hover {
+  transform: scale(1.05);
+}
+
+.mass-section {
+  min-height: 85vh;
+  background: linear-gradient(135deg, #f7f3ef 0%, #fff 100%);
+  border-radius: 20px;
+}
+
+.mass-schedule-card,
+.latest-masses-card {
+  transition: transform 0.4s ease-in-out;
+  border-radius: 1rem; /* .rounded-4 */
+}
+
+.mass-schedule-card:hover,
+.latest-masses-card:hover {
+  transform: translateY(-10px);
+}
+
+.mass-schedule-card {
+  background: linear-gradient(160deg, #6f4e37, #8b5a2b);
+  color: #fff;
+}
+
+.mass-schedule-card .fa-church {
+  color: #ffd700;
+}
+
+.mass-schedule-card .divider {
+  height: 3px;
+  width: 60px;
+  background-color: #ffd700;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.latest-masses-card {
+  border: 1px solid #e2d6c8;
+}
+
+.latest-masses-card .fa-video,
+.latest-masses-card h3 {
+  color: #6f4e37;
+}
+
+.latest-masses-card .divider {
+  height: 3px;
+  width: 60px;
+  background-color: #6f4e37;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.latest-mass-link {
+  color: #6f4e37;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.latest-mass-link:hover {
+  color: #b8860b;
+}
+
+.youtube-btn {
+  border-color: #6f4e37;
+  color: #6f4e37;
+  transition: all 0.3s ease-in-out;
+}
+
+.youtube-btn:hover {
+  background-color: #6f4e37;
+  color: #fff;
+}
+
+.about-section {
+  background: linear-gradient(135deg, #f7f3ef 0%, #fff 100%);
+  padding: 80px 20px;
+}
+
+.about-section h2 {
+  color: #6f4e37;
+  letter-spacing: 1px;
+}
+
+.about-section .divider {
+  height: 3px;
+  width: 70px;
+  background-color: #b8860b;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.contact-btn {
+  border-color: #6f4e37;
+  color: #6f4e37;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-btn:hover {
+  background-color: #6f4e37;
+  color: #fff;
+}
+
+/* InfoCard Component Styles */
+.info-card {
+  border-radius: 20px;
+  transition: transform 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+}
+
+.info-card-header {
+  background: linear-gradient(
+    160deg,
+    rgba(111, 78, 55, 0.9),
+    rgba(139, 90, 43, 0.8)
+  );
+  color: #fff;
+  padding: 20px;
+}
+
+.info-card-header i {
+  color: #ffc107; /* .text-warning */
+}

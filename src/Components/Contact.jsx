@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Contact = () => {
+  // State for form fields
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  // Handle input changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle form submission using mailto
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, message } = formData;
+    const subject = encodeURIComponent(`Message from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+
+    window.location.href = `mailto:info@stjohnkaren.org?subject=${subject}&body=${body}`;
+  };
+
   return (
     <section
       id="contact"
@@ -55,11 +79,14 @@ const Contact = () => {
               <h4 className="fw-bold text-dark mb-3">
                 <i className="fa-solid fa-paper-plane me-2"></i> Send a Message
               </h4>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label className="form-label text-dark">Name</label>
                   <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     className="form-control rounded-pill"
                     placeholder="Your Full Name"
                     required
@@ -69,6 +96,9 @@ const Contact = () => {
                   <label className="form-label text-dark">Email</label>
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="form-control rounded-pill"
                     placeholder="your@email.com"
                     required
@@ -77,6 +107,9 @@ const Contact = () => {
                 <div className="mb-3">
                   <label className="form-label text-dark">Message</label>
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     className="form-control rounded-4"
                     rows="4"
                     placeholder="Type your message..."

@@ -1,49 +1,69 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Footer.css";
 
 const Footer = () => {
-  const [visible, setVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        // scrolling down → hide footer
-        setVisible(false);
-      } else {
-        // scrolling up → show footer
-        setVisible(true);
-      }
-      setLastScrollY(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
-
   return (
-    <footer
-      className={`text-center py-3 fixed-bottom transition-footer ${
-        visible ? "show" : "hide"
-      }`}
-      style={{ backgroundColor: "#000", color: "#fff" }}
-    >
-      <div className="container">
-        <p className="mb-2 small">
-          © {new Date().getFullYear()} St John the Evangelist karen . All rights reserved.
-        </p>
-        <div>
-          <a href="St John the Evangelist Parish- Karen" className="text-white mx-2">
-            <i className="fa-brands fa-facebook fa-lg"></i>
-          </a>
-          <a href="#" className="text-white mx-2">
-            <i className="fa-brands fa-twitter fa-lg"></i>
-          </a>
-          <a href="#" className="text-white mx-2">
-            <i className="fa-brands fa-instagram fa-lg"></i>
-          </a>
-          <a href="#" className="text-white mx-2">
-            <i className="fa-brands fa-youtube fa-lg"></i>
-          </a>
+    <footer className="footer-section text-white pt-4 pb-3">
+      <div className="container text-center text-md-start">
+        <div className="row text-center text-md-start mt-3">
+          <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 className="text-uppercase mb-4 fw-bold footer-title">
+              St. John the Evangelist
+            </h5>
+            <p>
+              A welcoming Catholic community dedicated to living and sharing the
+              Gospel of Jesus Christ.
+            </p>
+          </div>
+
+          <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 className="text-uppercase mb-4 fw-bold footer-title">Quick Links</h5>
+            <div className="d-flex flex-column gap-2">
+              <Link to="/" className="footer-link">Home</Link>
+              <Link to="/about" className="footer-link">About</Link>
+              <Link to="/events" className="footer-link">Events</Link>
+              <Link to="/contact" className="footer-link">Contact</Link>
+            </div>
+          </div>
+
+          <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 className="text-uppercase mb-4 fw-bold footer-title">Contact</h5>
+            <p><i className="fas fa-home me-3"></i>123 Church Lane, Faith City</p>
+            <p><i className="fas fa-envelope me-3"></i>contact@stjohnparish.com</p>
+            <p><i className="fas fa-phone me-3"></i>(123) 456-7890</p>
+          </div>
+        </div>
+
+        <hr className="my-4" />
+
+        {/* Social Media and Copyright */}
+        <div className="row align-items-center justify-content-between">
+          {/* Copyright */}
+          <div className="col-md-6 text-center text-md-start">
+            <p className="mb-0">
+              © {new Date().getFullYear()} St. John the Evangelist Parish. All Rights Reserved.
+            </p>
+          </div>
+          {/* Social Icons */}
+          <div className="col-md-6 text-center text-md-end mt-3 mt-md-0">
+            <div className="social-icons">
+              <a href="#!" className="social-icon">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href="#!" className="social-icon">
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a href="#!" className="social-icon">
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://youtube.com/@stjohntheevangelistparishk3514"
+                className="social-icon">
+                <i className="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

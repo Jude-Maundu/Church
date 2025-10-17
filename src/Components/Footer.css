@@ -1,0 +1,47 @@
+.footer-section {
+  /* Glassmorphism effect */
+  background: rgba(40, 30, 25, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.footer-section p {
+  font-size: 0.9rem;
+}
+
+.footer-title {
+  color: var(--gold-glow);
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #fff;
+}
+
+.social-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  margin: 0 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: var(--gold-glow);
+  color: var(--brown-dark);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}

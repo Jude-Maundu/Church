@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./SideMenu.css";
 
 const SideMenu = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -19,25 +20,26 @@ const SideMenu = () => {
       title: "Choirs",
       icon: "fa-music",
       links: [
-        { name: "Upendo Choir", path: "Upendo Choir" },
-        { name: "Blessed Voices Choir", path: "Blessed Voices Choir" },
-        { name: "Singers of Christ Choir", path: "Singers of Christ Choir" },
+        { name: "Upendo Choir", path: "/choirs/upendo" },
+        { name: "Blessed Voices Choir", path: "/choirs/blessed-voices" },
+        { name: "Singers of Christ Choir", path: "/choirs/singers-of-christ" },
       ],
     },
     {
       title: "News & Events",
       icon: "fa-newspaper",
       links: [
-        { name: "Announcements", path: "/news/announcements" },
-        { name: "Upcoming Events", path: "/news/upcoming-events" },
+        { name: "Announcements", path: "/announcements" },
+        { name: "Upcoming Events", path: "/events" },
+        { name: "News", path: "/news" },
       ],
     },
     {
       title: "Church",
       icon: "fa-church",
       links: [
-        { name: "Church History", path: "/church/history" },
-        { name: "Church Staff", path: "/church/mission" },
+        { name: "About Us", path: "/about" },
+        { name: "Contact Us", path: "/contact" },
         { name: "Catechist Pastoral Office" },
         { name: "Priests" },
         { name: "PPC Executive" },
@@ -47,16 +49,17 @@ const SideMenu = () => {
       title: "Church Committees",
       icon: "fa-users",
       links: [
-        { name: "Lectors Committee", path: "/committees/finance" },
-        { name: "Development Committee", path: "/committees/event" },
+        { name: "Lectors Committee" },
+        { name: "Development Committee" },
       ],
     },
     {
       title: "Church Groups",
       icon: "fa-users-line",
       links: [
-        { name: "Catholic Men Association", path: "/groups/youth" },
-        { name: "Catholic Women Association", path: "/groups/women" },
+        { name: "Catholic Men Association", path: "/groups/cma" },
+        { name: "Catholic Women Association", path: "/groups/cwa" },
+        { name: "Altar Servers", path: "/groups/altar-servers" },
         { name: "Pontifical Missionary Children" },
         { name: "Lay Incarnet" },
         { name: "Schoenstatt Movement" },
@@ -74,7 +77,6 @@ const SideMenu = () => {
         { name: "St Augustine", path: "/jumuias/st-augustine" },
         { name: "St Claire of Assisi", path: "/jumuias/st-claire" },
         { name: "St Francis of Assisi", path: "/jumuias/st-francis" },
-        { name: "St John Prayer Group", path: "/jumuias/st-john" },
         { name: "St Josemaria", path: "/jumuias/st-josemaria" },
         { name: "St Jude", path: "/jumuias/st-jude" },
         { name: "St Mary", path: "/jumuias/st-mary" },
@@ -88,9 +90,10 @@ const SideMenu = () => {
       title: "Sacraments",
       icon: "fa-hand-holding-water",
       links: [
-        { name: "Baptism", path: "/sacraments/baptism" },
-        { name: "Confirmation", path: "/sacraments/confirmation" },
-        { name: "Confession" ,},
+        { name: "Sacraments Overview", path: "/sacraments" },
+        { name: "Baptism" },
+        { name: "Confirmation" },
+        { name: "Confession" },
         { name: "Eucharist" },
         { name: "Holy Orders" },
         { name: "Anointing of the Sick" },
@@ -101,8 +104,8 @@ const SideMenu = () => {
       title: "Youth Ministry",
       icon: "fa-child",
       links: [
-        { name: "Young Catholic Adults", path: "/youth/fellowship" },
-        { name: "Youth Serving Christ", path: "/youth/outreach" },
+        { name: "Young Catholic Adults", path: "/youth/yca" },
+        { name: "Youth Serving Christ", path: "/youth/ysc" },
       ],
     },
   ];
@@ -124,6 +127,14 @@ const SideMenu = () => {
       </div>
 
       <div className="offcanvas-body d-flex flex-column gap-2">
+        <div className="sidemenu-image-container mb-3">
+          <img
+            src="/DSC_0176-scaled.jpg"
+            alt="St. John the Evangelist Parish"
+            className="sidemenu-image"
+          />
+        </div>
+
         {/* Home */}
         <Link
           to="/"

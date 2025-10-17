@@ -1,0 +1,19 @@
+.custom-offcanvas {
+  background: linear-gradient(170deg, var(--brown-dark) 0%, #4a3728 100%);
+  color: #f0f0f0;
+  border-right: 2px solid var(--gold-glow);
+}
+
+.custom-offcanvas .offcanvas-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidemenu-image-container {
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.sidemenu-image {
+  width: 100%;
+  object-fit: cover;
+}

@@ -1,25 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import InfoCard from "./InfoCard";
+import "./Home.css";
 
 const Home = () => {
   return (
-    <div>
+    <div id="home">
       {/* Hero Banner */}
       <section
-        className="d-flex flex-column align-items-center justify-content-center text-center"
-        style={{
-          minHeight: "80vh",
-          backgroundImage: "url('DSC_0176-scaled.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          color: "white",
-          padding: "80px 20px",
-        }}
+        className="home-hero d-flex flex-column align-items-center justify-content-center text-center"
       >
         <div
-          className="mt-3 p-4 rounded-4 shadow-lg"
-          style={{ maxWidth: "750px", background: "rgba(255,255,255,0.8)" }}
+          className="hero-content mt-3 p-4 rounded-4 shadow-lg"
         >
           <h1 className="fw-bold mb-3 display-4 text-dark">
             Welcome to <br /> St John the Evangelist Parish
@@ -31,101 +23,101 @@ const Home = () => {
           <div className="mt-4">
             <Link
               to="/about"
-              className="btn btn-light me-3 px-4 py-2"
-              style={{
-                transition: "transform 0.3s ease-in-out",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              className="btn btn-light me-3 px-4 py-2 hero-btn"
             >
               <i className="fas fa-info-circle me-2"></i>
               Learn More
             </Link>
             <Link
               to="/events"
-              className="btn btn-dark px-4 py-2"
-              style={{
-                transition: "transform 0.3s ease-in-out",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              className="btn btn-dark px-4 py-2 hero-btn"
             >
               Upcoming Events
             </Link>
           </div>
         </div>
       </section>
-
-      <hr />
-
+      
       {/* Mass Schedule + Latest Masses Section */}
-      <section className="container py-5">
-        <div className="row g-4 text-center">
-          {/* Mass Schedule Card - Brown */}
+      <section
+        className="container py-5 mass-section"
+      >
+        <div className="row g-4 text-center align-items-stretch">
+          {/* Mass Schedule Card */}
           <div className="col-md-6">
             <div
-              className="p-5 shadow-lg rounded h-100 d-flex flex-column justify-content-center"
-              style={{
-                backgroundColor: "#8B4513",
-                color: "#fff",
-                borderRadius: "20px",
-                minHeight: "450px", // Increased height
-                transition: "transform 0.3s ease-in-out",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-10px)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
+              className="mass-schedule-card p-5 shadow-lg h-100"
             >
-              <h3 className="fw-bold mb-4">📖 Mass Schedule</h3>
-              <p className="mb-3 fs-5">📅 Sunday: 8:00 AM & 10:00 AM</p>
-              <p className="mb-3 fs-5">📅 Wednesday: 6:00 PM</p>
-              <p className="mb-0 fs-5">📅 Friday: 6:00 PM (Adoration)</p>
+              <div className="mb-4">
+                <i className="fas fa-church fa-3x mb-3"></i>
+                <h3 className="fw-bold mb-2">Mass Schedule</h3>
+                <div className="divider"></div>
+              </div>
+              <div className="fs-5">
+                <p>
+                  📅 <strong>Sunday:</strong> 8:00 AM & 10:00 AM
+                </p>
+                <p>
+                  📅 <strong>Wednesday:</strong> 6:00 PM
+                </p>
+                <p>
+                  📅 <strong>Friday (Adoration):</strong> 6:00 PM
+                </p>
+              </div>
+              <p className="mt-4 fst-italic text-light small">
+                “Come, let us worship and bow down before the Lord our Maker.”
+              </p>
             </div>
           </div>
-
-          {/* Latest Masses Card with Links */}
+          {/* Latest Masses Card */}
           <div className="col-md-6">
             <div
-              className="p-5 shadow-lg rounded bg-white h-100 d-flex flex-column justify-content-center"
-              style={{
-                borderRadius: "20px",
-                minHeight: "450px", // Increased height to match
-                transition: "transform 0.3s ease-in-out",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-10px)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
+              className="latest-masses-card p-5 shadow-lg bg-white h-100"
             >
-              <h3 className="fw-bold mb-4" style={{ color: "#6f4e37" }}>
-                🎥 Latest Masses
-              </h3>
-              <ul className="list-group list-group-flush fs-5">
-                <li className="list-group-item">
+              <div className="mb-4">
+                <i className="fas fa-video fa-3x mb-3"></i>
+                <h3 className="fw-bold mb-2">Latest Masses</h3>
+                <div className="divider"></div>
+              </div>
+              <ul className="list-unstyled fs-5 text-start">
+                <li className="mb-3">
                   <a
                     href="https://youtube.com/@stjohntheevangelistparishk3514?si=rMeWu3bgJwfGzrpc"
-                    className="text-decoration-none"
-                    style={{ color: "#6f4e37", fontWeight: "500" }}
+                    className="latest-mass-link text-decoration-none d-flex align-items-center"
                   >
+                    <i className="fas fa-play-circle me-2 text-warning"></i>
                     Sunday Mass – Sept 15, 2025
                   </a>
                 </li>
-                <li className="list-group-item">
+                <li className="mb-3">
                   <a
                     href="https://youtube.com/@stjohntheevangelistparishk3514?si=rMeWu3bgJwfGzrpc"
-                    className="text-decoration-none"
-                    style={{ color: "#6f4e37", fontWeight: "500" }}
+                    className="latest-mass-link text-decoration-none d-flex align-items-center"
                   >
+                    <i className="fas fa-play-circle me-2 text-warning"></i>
                     Morning Mass – Sept 14, 2025
                   </a>
                 </li>
-                <li className="list-group-item">
+                <li>
                   <a
                     href="https://youtube.com/@stjohntheevangelistparishk3514?si=rMeWu3bgJwfGzrpc"
-                    className="text-decoration-none"
-                    style={{ color: "#6f4e37", fontWeight: "500" }}
+                    className="latest-mass-link text-decoration-none d-flex align-items-center"
                   >
+                    <i className="fas fa-play-circle me-2 text-warning"></i>
                     Evening Mass – Sept 13, 2025
                   </a>
                 </li>
               </ul>
+              <div className="mt-4">
+                <a
+                  href="https://youtube.com/@stjohntheevangelistparishk3514"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="youtube-btn btn btn-outline-dark px-4 py-2 rounded-pill"
+                >
+                  <i className="fab fa-youtube me-2 text-danger"></i> Watch More on YouTube
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -133,106 +125,59 @@ const Home = () => {
 
       {/* About Section */}
       <section
-        className="py-5 text-white"
-        style={{
-          background: "linear-gradient(135deg, #3e2723 0%, #6f4e37 100%)",
-          padding: "80px 20px",
-        }}
+        id="about"
+        className="about-section py-5 text-dark"
       >
         <div className="container text-center">
-          <h2 className="fw-bold mb-5">About Us</h2>
+          <div className="mb-5">
+            <h2 className="fw-bold mb-2">About Us</h2>
+            <div className="divider"></div>
+            <p className="mt-3 text-muted fs-5">
+              We are a faith-driven community rooted in worship, service, and
+              love.
+            </p>
+          </div>
           <div className="row g-4">
             <div className="col-md-4">
-              <div
-                className="card shadow-lg border-0 h-100"
-                style={{
-                  transition: "transform 0.3s ease-in-out",
-                  borderRadius: "15px",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              <InfoCard
+                icon="fa-church"
+                title="Our Church"
+                imageSrc="https://via.placeholder.com/400x250"
+                imageAlt="Church building"
               >
-                <img
-                  src="https://via.placeholder.com/400x250"
-                  className="card-img-top rounded-top"
-                  alt="Church building"
-                />
-                <div className="card-body">
-                  <h5 className="card-title" style={{ color: "#6f4e37" }}>
-                    Our Church
-                  </h5>
-                  <p className="card-text text-muted">
-                    A place of worship and fellowship for all people seeking
-                    God’s love.
-                  </p>
-                </div>
-              </div>
+                A sacred space where we gather to celebrate the sacraments,
+                strengthen faith, and grow in love.
+              </InfoCard>
             </div>
             <div className="col-md-4">
-              <div
-                className="card shadow-lg border-0 h-100"
-                style={{
-                  transition: "transform 0.3s ease-in-out",
-                  borderRadius: "15px",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              <InfoCard
+                icon="fa-user-tie"
+                title="Our Priests"
+                imageSrc="https://via.placeholder.com/400x250"
+                imageAlt="Priests"
               >
-                <img
-                  src="https://via.placeholder.com/400x250"
-                  className="card-img-top rounded-top"
-                  alt="Priests"
-                />
-                <div className="card-body">
-                  <h5 className="card-title" style={{ color: "#6f4e37" }}>
-                    Our Priests
-                  </h5>
-                  <p className="card-text text-muted">
-                    Leading with faith and wisdom, guiding our community closer
-                    to God.
-                  </p>
-                </div>
-              </div>
+                Faithful shepherds who guide our parish with wisdom, humility,
+                and devotion to Christ’s mission.
+              </InfoCard>
             </div>
             <div className="col-md-4">
-              <div
-                className="card shadow-lg border-0 h-100"
-                style={{
-                  transition: "transform 0.3s ease-in-out",
-                  borderRadius: "15px",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              <InfoCard
+                icon="fa-people-group"
+                title="Our Community"
+                imageSrc="https://via.placeholder.com/400x250"
+                imageAlt="Community"
               >
-                <img
-                  src="https://via.placeholder.com/400x250"
-                  className="card-img-top rounded-top"
-                  alt="Community"
-                />
-                <div className="card-body">
-                  <h5 className="card-title" style={{ color: "#6f4e37" }}>
-                    Our Community
-                  </h5>
-                  <p className="card-text text-muted">
-                    A strong family of believers who support one another in
-                    faith and life.
-                  </p>
-                </div>
-              </div>
+                United in spirit, our parish family stands together in prayer,
+                service, and compassion for one another.
+              </InfoCard>
             </div>
           </div>
-
-          <div className="mt-4">
+          <div className="mt-5">
             <Link
               to="/contact"
-              className="btn btn-light px-4 py-2"
-              style={{
-                transition: "transform 0.3s ease-in-out",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              className="contact-btn btn btn-outline-dark px-4 py-2 rounded-pill"
             >
-              Contact Us
+              <i className="fas fa-envelope me-2"></i> Contact Us
             </Link>
           </div>
         </div>
