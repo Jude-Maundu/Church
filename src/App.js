@@ -1,19 +1,21 @@
 import "./App.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js"; // interactivity
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+
+// Main Pages
 import Home from "./Components/Home";
-import gsap from "gsap";
 import Layout from "./Components/Layout";
-import SideMenu from "./Components/SideMenu";
 import Contact from "./Components/Contact";
 import Announcements from "./Components/Announcements";
 import NewsAndEvents from "./Components/News&Events";
+
+// Choir Pages
 import UpendoChoir from "./Components/Pages/Choirs/UpendoChoir";
 import BlessedVoicesChoir from "./Components/Pages/Choirs/BlessedVoicesChoir";
 import SingersForChrist from "./Components/Pages/Choirs/SingersForChrist";
-import infoCard from "./Components/InfoCard";
+
 // Jumuia Pages
 import StAnne from "./Components/Pages/Jumuias/St.Anne";
 import StAugustine from "./Components/Pages/Jumuias/St.Augustine";
@@ -30,7 +32,7 @@ import StPadrePio from "./Components/Pages/Jumuias/St.PadrePio";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
             {/* Main */}
@@ -51,15 +53,14 @@ function App() {
             <Route path="jumuias/st-monica" element={<StMonica />} />
             <Route path="jumuias/st-theresa" element={<StTheresa />} />
             <Route path="jumuias/st-padrepio" element={<StPadrePio />} />
+
             {/* Choir Pages */}
-            <Route path="Upendo Choir" element={<UpendoChoir />} />
-            <Route path="Blessed Voices Choir" element={<BlessedVoicesChoir />} />
-            <Route path="Singers of Christ Choir" element={<SingersForChrist/>} />
-
-
+            <Route path="choirs/upendo" element={<UpendoChoir />} />
+            <Route path="choirs/blessed-voices" element={<BlessedVoicesChoir />} />
+            <Route path="choirs/singers-for-christ" element={<SingersForChrist />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
