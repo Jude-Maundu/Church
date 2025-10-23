@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./SideMenu.css";
+import "./SideMenu.css"
+
 
 const SideMenu = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
-
   const handleClose = () => {
     const offcanvasEl = document.getElementById("sideMenu");
     const offcanvas = window.bootstrap.Offcanvas.getInstance(offcanvasEl);
@@ -40,6 +40,7 @@ const SideMenu = () => {
       links: [
         { name: "About Us", path: "/about" },
         { name: "Contact Us", path: "/contact" },
+        { name: "Our History", path: "/history" }, // Added Our History link
         { name: "Catechist Pastoral Office" },
         { name: "Priests" },
         { name: "PPC Executive" },
@@ -49,8 +50,9 @@ const SideMenu = () => {
       title: "Church Committees",
       icon: "fa-users",
       links: [
-        { name: "Lectors Committee" },
-        { name: "Development Committee" },
+        { name: "Lectors Committee", path: "/committees/lectors" },
+        { name: "Development Committee", path: "/committees/development" },
+        { name: "Ushers Committee", path: "/committees/ushers" },
       ],
     },
     {
@@ -59,14 +61,14 @@ const SideMenu = () => {
       links: [
         { name: "Catholic Men Association", path: "/groups/cma" },
         { name: "Catholic Women Association", path: "/groups/cwa" },
-        { name: "Altar Servers", path: "/groups/altar-servers" },
+        { name: "Altar Servers", path: "/groups/AltarServers" }, // Corrected path
         { name: "Pontifical Missionary Children" },
-        { name: "Lay Incarnet" },
+        { name: "Lay Incarnate", path: "/groups/LayIncarnate" },
         { name: "Schoenstatt Movement" },
-        { name: "Lay Carmelites" },
-        { name: "Lay Spiritans" },
-        { name: "Self Help Group" },
-        { name: "Widows Association" },
+        { name: "Lay Carmelites", path: "/groups/LayCarmelites" },
+        { name: "Lay Spiritans", path: "/groups/LaySpiritans" },
+        { name: "Self Help Group", path: "/groups/SelfHelp" },
+        { name: "Widows Association", path: "/groups/WidowsAssociation" },
       ],
     },
     {
@@ -91,7 +93,7 @@ const SideMenu = () => {
       icon: "fa-hand-holding-water",
       links: [
         { name: "Sacraments Overview", path: "/sacraments" },
-        { name: "Baptism" },
+        { name: "Baptism", path: "/sacraments/baptism" },
         { name: "Confirmation" },
         { name: "Confession" },
         { name: "Eucharist" },
@@ -129,7 +131,7 @@ const SideMenu = () => {
       <div className="offcanvas-body d-flex flex-column gap-2">
         <div className="sidemenu-image-container mb-3">
           <img
-            src="/DSC_0176-scaled.jpg"
+            src={process.env.PUBLIC_URL + "/DSC_0176-scaled.jpg"}
             alt="St. John the Evangelist Parish"
             className="sidemenu-image"
           />

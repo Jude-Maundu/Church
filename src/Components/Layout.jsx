@@ -8,10 +8,15 @@ const Layout = () => {
   return (
     <div style={{ backgroundColor: "#fdfcf5", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <Navbar />
-      <SideMenu />
-      <main className="flex-grow-1">
-        <Outlet />
-      </main>
+
+      {/* Body Section */}
+      <div style={{ display: "flex", flexGrow: 1 }}>
+        <SideMenu />
+        <main style={{ flexGrow: 1, padding: "20px" }}>
+          <Outlet />
+        </main>
+      </div>
+
       <Footer />
     </div>
   );

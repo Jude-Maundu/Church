@@ -142,7 +142,7 @@ const Home = () => {
               <InfoCard
                 icon="fa-church"
                 title="Our Church"
-                imageSrc="https://via.placeholder.com/400x250"
+                imageSrc={process.env.PUBLIC_URL + "/DSC_0150.jpg"}
                 imageAlt="Church building"
               >
                 A sacred space where we gather to celebrate the sacraments,
@@ -153,7 +153,7 @@ const Home = () => {
               <InfoCard
                 icon="fa-user-tie"
                 title="Our Priests"
-                imageSrc="https://via.placeholder.com/400x250"
+                imageSrc={process.env.PUBLIC_URL + "/DSC_1655.jpg"}
                 imageAlt="Priests"
               >
                 Faithful shepherds who guide our parish with wisdom, humility,
@@ -164,7 +164,7 @@ const Home = () => {
               <InfoCard
                 icon="fa-people-group"
                 title="Our Community"
-                imageSrc="https://via.placeholder.com/400x250"
+                imageSrc={process.env.PUBLIC_URL + "/IMG_3835.jpg"}
                 imageAlt="Community"
               >
                 United in spirit, our parish family stands together in prayer,
