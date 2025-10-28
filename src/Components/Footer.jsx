@@ -18,20 +18,39 @@ const Footer = () => {
           </div>
 
           <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-            <h5 className="text-uppercase mb-4 fw-bold footer-title">Quick Links</h5>
+            <h5 className="text-uppercase mb-4 fw-bold footer-title">
+              Quick Links
+            </h5>
             <div className="d-flex flex-column gap-2">
-              <Link to="/" className="footer-link">Home</Link>
-              <Link to="/about" className="footer-link">About</Link>
-              <Link to="/events" className="footer-link">Events</Link>
-              <Link to="/contact" className="footer-link">Contact</Link>
+              <Link to="/" className="footer-link">
+                Home
+              </Link>
+              <Link to="/about" className="footer-link">
+                About
+              </Link>
+              <Link to="/events" className="footer-link">
+                Events
+              </Link>
+              <Link to="/contact" className="footer-link">
+                Contact
+              </Link>
             </div>
           </div>
 
           <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h5 className="text-uppercase mb-4 fw-bold footer-title">Contact</h5>
-            <p><i className="fas fa-home me-3"></i>123 Church Lane, Faith City</p>
-            <p><i className="fas fa-envelope me-3"></i>contact@stjohnparish.com</p>
-            <p><i className="fas fa-phone me-3"></i>(123) 456-7890</p>
+            <h5 className="text-uppercase mb-4 fw-bold footer-title">
+              Contact
+            </h5>
+            <p>
+              <i className="fas fa-home me-3"></i>Langata South Rd
+            </p>
+            <p>
+              <i className="fas fa-envelope me-3"></i>info@stjohntheevangelistchurch.co.ke
+            </p>
+            <p>
+              <i className="fas fa-phone me-3"></i>020-3882000 <br/>
+              <i className="fas fa-phone me-3"></i>0797828903
+            </p>
           </div>
         </div>
 
@@ -42,7 +61,8 @@ const Footer = () => {
           {/* Copyright */}
           <div className="col-md-6 text-center text-md-start">
             <p className="mb-0">
-              © {new Date().getFullYear()} St. John the Evangelist Parish. All Rights Reserved.
+              © {new Date().getFullYear()} St. John the Evangelist Parish. All
+              Rights Reserved.
             </p>
           </div>
           {/* Social Icons */}
@@ -59,12 +79,18 @@ const Footer = () => {
               </a>
               <a
                 href="https://youtube.com/@stjohntheevangelistparishk3514"
-                className="social-icon">
+                className="social-icon"
+              >
                 <i className="fab fa-youtube"></i>
               </a>
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <strong>
+          Developed by Jude Maundu
+        </strong>
       </div>
     </footer>
   );

@@ -1,0 +1,47 @@
+mutation CreateNewEvent($title: String!, $description: String!, $location: String!, $startDate: Timestamp!, $endDate: Timestamp!, $rsvpRequired: Boolean!, $imageUrl: String) @auth(level: USER) {
+  event_insert(data: {
+    title: $title,
+    description: $description,
+    location: $location,
+    startDate: $startDate,
+    endDate: $endDate,
+    rsvpRequired: $rsvpRequired,
+    imageUrl: $imageUrl
+  })
+}
+
+query ListUpcomingEvents @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  events(where: {startDate: {gt_time: {now: true}}}) {
+    id
+    title
+    description
+    location
+    startDate
+    endDate
+    rsvpRequired
+    imageUrl
+  }
+}
+
+mutation UpdateUserProfile($id: UUID!, $displayName: String, $email: String, $phoneNumber: String, $photoUrl: String, $address: String) @auth(level: USER) {
+  user_update(key: {id: $id}, data: {
+    displayName: $displayName,
+    email: $email,
+    phoneNumber: $phoneNumber,
+    photoUrl: $photoUrl,
+    address: $address
+  })
+}
+
+query GetCurrentUserProfile($id: UUID!) @auth(level: USER) {
+  user(id: $id) {
+    id
+    displayName
+    email
+    phoneNumber
+    photoUrl
+    address
+    role
+    createdAt
+  }
+}
