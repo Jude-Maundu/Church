@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./SideMenu.css"
-
+import "./SideMenu.css";
 
 const SideMenu = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
+
   const handleClose = () => {
     const offcanvasEl = document.getElementById("sideMenu");
-    const offcanvas = window.bootstrap.Offcanvas.getInstance(offcanvasEl);
-    if (offcanvas) offcanvas.hide();
+    if (!offcanvasEl) return;
+
+    // Get or create Bootstrap Offcanvas instance safely
+    let offcanvas = window.bootstrap.Offcanvas.getInstance(offcanvasEl);
+    if (!offcanvas) {
+      offcanvas = new window.bootstrap.Offcanvas(offcanvasEl);
+    }
+
+    offcanvas.hide(); // 👈 This ensures it actually closes
   };
 
   const toggleDropdown = (name) => {
@@ -40,7 +47,7 @@ const SideMenu = () => {
       links: [
         { name: "About Us", path: "/about" },
         { name: "Contact Us", path: "/contact" },
-        { name: "Our History", path: "/history" }, // Added Our History link
+        { name: "Our History", path: "/history" },
         { name: "Catechist Pastoral Office" },
         { name: "Priests" },
         { name: "PPC Executive" },
@@ -61,7 +68,7 @@ const SideMenu = () => {
       links: [
         { name: "Catholic Men Association", path: "/groups/cma" },
         { name: "Catholic Women Association", path: "/groups/cwa" },
-        { name: "Altar Servers", path: "/groups/AltarServers" }, // Corrected path
+        { name: "Altar Servers", path: "/groups/AltarServers" },
         { name: "Pontifical Missionary Children" },
         { name: "Lay Incarnate", path: "/groups/LayIncarnate" },
         { name: "Schoenstatt Movement" },
@@ -137,7 +144,7 @@ const SideMenu = () => {
           />
         </div>
 
-        {/* Home */}
+        {/* Home Link */}
         <Link
           to="/"
           className="btn btn-outline-light rounded-pill text-start w-100"
@@ -163,7 +170,7 @@ const SideMenu = () => {
               ></i>
             </button>
 
-            {/* Collapsible Items */}
+            {/* Dropdown Links */}
             <div
               className={`collapse mt-2 ${
                 openDropdown === menu.title ? "show" : ""
@@ -176,7 +183,7 @@ const SideMenu = () => {
                       to={link.path}
                       key={i}
                       className="btn btn-light rounded-pill text-start ps-4"
-                      onClick={handleClose}
+                      onClick={handleClose} // 👈 Closes side menu on click
                     >
                       {link.name}
                     </Link>

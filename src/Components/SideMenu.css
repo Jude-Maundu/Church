@@ -22,6 +22,52 @@
 .custom-offcanvas .offcanvas-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* Link and Button Styles */
+.sidemenu-link, .sidemenu-button {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  display: block;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.sidemenu-link:hover, .sidemenu-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.sidemenu-link.active {
+  background-color: var(--gold-glow);
+  color: var(--brown-dark);
+  font-weight: bold;
+}
+
+.sidemenu-button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+}
+
+.transition-transform {
+  transition: transform 0.3s ease;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.sidemenu-submenu {
+  padding-left: 1.5rem;
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin-top: -5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 /* Base Offcanvas Styling */
 .custom-offcanvas {
   background: linear-gradient(170deg, var(--brown-dark) 0%, #4a3728 100%);

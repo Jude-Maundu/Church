@@ -9,11 +9,18 @@ const Announcements = () => {
   useEffect(() => {
     const fetchAnnouncements = async () => {
       try {
-        // Replace this with your actual API endpoint
-        const res = await axios.get("https://your-api-endpoint.com/announcements");
-        setAnnouncements(res.data);
+        const res = await axios.get("https://schoolbackend-kbhx.onrender.com/api/courses/");
+        console.log("API Response:", res.data);
+
+        // 🧠 Handle different response formats safely
+        const data = Array.isArray(res.data)
+          ? res.data
+          : res.data.courses || res.data.announcements || [];
+
+        setAnnouncements(data);
       } catch (error) {
         console.error("Error fetching announcements:", error);
+        setAnnouncements([]); // fallback
       } finally {
         setLoading(false);
       }
@@ -51,38 +58,34 @@ const Announcements = () => {
 
     // 🎨 Loop through announcements
     announcements.forEach((ann, index) => {
-      // Add new page if needed
       if (y > 250) {
         doc.addPage();
         y = 20;
       }
 
-      // 🩵 Card background
-      doc.setFillColor(245, 245, 245); // light gray background
+      doc.setFillColor(245, 245, 245);
       doc.roundedRect(15, y, 180, 40, 3, 3, "F");
 
-      // 🏷️ Title
-      doc.setTextColor(33, 37, 41); // dark gray
+      doc.setTextColor(33, 37, 41);
       doc.setFont("helvetica", "bold");
       doc.setFontSize(14);
-      doc.text(`${index + 1}. ${ann.title}`, 20, y + 10);
+      doc.text(`${index + 1}. ${ann.title || "Untitled"}`, 20, y + 10);
 
-      // 📅 Date
       doc.setFont("helvetica", "italic");
       doc.setTextColor(100, 100, 100);
       doc.setFontSize(11);
-      doc.text(`📅 ${ann.date}`, 20, y + 18);
+      doc.text(`📅 ${ann.date || "No date"}`, 20, y + 18);
 
-      // 📝 Description
       doc.setTextColor(33, 37, 41);
       doc.setFont("helvetica", "normal");
       doc.setFontSize(12);
-      doc.text(ann.description, 20, y + 28, { maxWidth: 170 });
+      doc.text(ann.description || "No description available.", 20, y + 28, {
+        maxWidth: 170,
+      });
 
       y += 50;
     });
 
-    // 💾 Save PDF
     doc.save("Church_Announcements.pdf");
   };
 
@@ -115,18 +118,26 @@ const Announcements = () => {
           </button>
         </div>
 
+        {/* 🌀 Content Display */}
         {loading ? (
           <div className="text-center text-muted">Loading announcements...</div>
+        ) : announcements.length === 0 ? (
+          <div className="text-center text-muted fs-5">
+            No announcements available at the moment. Please check back later.
+          </div>
         ) : (
           <div className="row g-4">
             {announcements.map((ann, index) => (
               <div className="col-lg-4 col-md-6" key={index}>
-                <div className="p-4 rounded-4 shadow-lg glass-card h-100">
-                  <h4 className="fw-bold text-dark mb-2">{ann.title}</h4>
+                <div className="p-4 rounded-4 shadow-lg h-100 bg-white bg-opacity-75">
+                  <h4 className="fw-bold text-dark mb-2">{ann.title || "Untitled"}</h4>
                   <p className="text-muted mb-3">
-                    <i className="fa-solid fa-calendar me-2"></i>{ann.date}
+                    <i className="fa-solid fa-calendar me-2"></i>
+                    {ann.date || "No date provided"}
                   </p>
-                  <p className="text-dark">{ann.description}</p>
+                  <p className="text-dark">
+                    {ann.description || "No description available."}
+                  </p>
                 </div>
               </div>
             ))}

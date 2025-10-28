@@ -124,10 +124,8 @@ const Navbar = () => {
                   <i className="fa-solid fa-bullhorn me-1"></i> Announcements
                 </Link>
               </li>
-            </ul>
-
-            {/* Side Menu Toggle */}
-            <button
+                         {/* Side Menu Toggle */}
+              <button
               className="btn btn-light btn-glass ms-lg-3 mt-3 mt-lg-0"
               type="button"
               data-bs-toggle="offcanvas"
@@ -135,6 +133,10 @@ const Navbar = () => {
             >
               <i className="fa-solid fa-bars"></i> Menu
             </button>
+            </ul>
+
+       
+            
           </div>
         </div>
       </nav>
