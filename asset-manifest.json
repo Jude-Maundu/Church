@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Church/static/css/main.36bb2c22.css",
-    "main.js": "/Church/static/js/main.469460a0.js",
+    "main.css": "/Church/static/css/main.751849ed.css",
+    "main.js": "/Church/static/js/main.8ed04666.js",
     "static/js/239.b81b64fc.chunk.js": "/Church/static/js/239.b81b64fc.chunk.js",
     "static/js/977.981017c0.chunk.js": "/Church/static/js/977.981017c0.chunk.js",
     "static/js/455.820e5de2.chunk.js": "/Church/static/js/455.820e5de2.chunk.js",
@@ -12,15 +12,15 @@
     "static/media/fa-regular-400.woff2": "/Church/static/media/fa-regular-400.1f38a564cd9eae27ebc3.woff2",
     "static/media/fa-v4compatibility.woff2": "/Church/static/media/fa-v4compatibility.661bd6b7245d5205d3e1.woff2",
     "index.html": "/Church/index.html",
-    "main.36bb2c22.css.map": "/Church/static/css/main.36bb2c22.css.map",
-    "main.469460a0.js.map": "/Church/static/js/main.469460a0.js.map",
+    "main.751849ed.css.map": "/Church/static/css/main.751849ed.css.map",
+    "main.8ed04666.js.map": "/Church/static/js/main.8ed04666.js.map",
     "239.b81b64fc.chunk.js.map": "/Church/static/js/239.b81b64fc.chunk.js.map",
     "977.981017c0.chunk.js.map": "/Church/static/js/977.981017c0.chunk.js.map",
     "455.820e5de2.chunk.js.map": "/Church/static/js/455.820e5de2.chunk.js.map",
     "453.6e297103.chunk.js.map": "/Church/static/js/453.6e297103.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.36bb2c22.css",
-    "static/js/main.469460a0.js"
+    "static/css/main.751849ed.css",
+    "static/js/main.8ed04666.js"
   ]
 }
