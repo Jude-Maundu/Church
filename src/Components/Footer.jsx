@@ -87,11 +87,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div>
-        <strong>
-          Developed by Jude Maundu
-        </strong>
-      </div>
     </footer>
   );
 };
