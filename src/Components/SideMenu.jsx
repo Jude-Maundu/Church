@@ -101,12 +101,12 @@ const SideMenu = () => {
       links: [
         { name: "Sacraments Overview", path: "/sacraments" },
         { name: "Baptism", path: "/sacraments/baptism" },
-        { name: "Confirmation" },
-        { name: "Confession" },
-        { name: "Eucharist" },
-        { name: "Holy Orders" },
-        { name: "Anointing of the Sick" },
-        { name: "Marriage" },
+        { name: "Confirmation", path: "/sacraments/confirmation"},
+        { name: "Confession", path: "/sacraments/confession"},
+        { name: "Eucharist" , path: "/sacraments/eucharist"},
+        { name: "Holy Orders", path: "/sacraments/holy-orders"},
+        { name: "Anointing of the Sick" ,path: "/sacraments/anointing-of-the-sick"},
+        { name: "Marriage" ,path:"/sacraments/marriage-requirements"},
       ],
     },
     {

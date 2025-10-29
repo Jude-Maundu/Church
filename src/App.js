@@ -43,6 +43,15 @@ import LaySpiritans from "./Components/Pages/ChurchGroup/LaySpiritans";
 import SelfHelp from "./Components/Pages/ChurchGroup/SelfHelp";
 import WidowsAssociation from "./Components/Pages/ChurchGroup/WidowsAssociation";
 
+// Sacraments
+import MarriageRequirements  from "./Components/Pages/Sacraments/Marriage/MarriageRequirments";
+import AnointingOfTheSick from "./Components/Pages/Sacraments/AnointingoftheSick";
+import Confession from "./Components/Pages/Sacraments/Confession";
+import Confirmation from "./Components/Pages/Sacraments/Confirmation";
+import Eucharist from "./Components/Pages/Sacraments/Eucharist";
+import HolyOrders from "./Components/Pages/Sacraments/HolyOrders";
+import Baptism from "./Components/Pages/Sacraments/Baptism";
+
 
 function App() {
   return (
@@ -83,6 +92,18 @@ function App() {
             <Route path="church-groups/lay-spiritans" element={<LaySpiritans />} />
             <Route path="church-groups/self-help" element={<SelfHelp />} />
             <Route path="church-groups/widows-association" element={<WidowsAssociation />} />
+            {/* Sacraments Routes */}
+            <Route path="sacraments/marriage-requirements" element={<MarriageRequirements />} />
+            <Route path="sacraments/anointing-of-the-sick" element={<AnointingOfTheSick />} />
+            <Route path="sacraments/confession" element={<Confession />} />
+            <Route path="sacraments/confirmation" element={<Confirmation />} />
+            <Route path="sacraments/eucharist" element={<Eucharist />} />
+            <Route path="sacraments/holy-orders" element={<HolyOrders />} />
+            <Route path="sacraments/baptism" element={<Baptism />} />
+
+            
+
+
           </Route>
         </Routes>
       </Router>

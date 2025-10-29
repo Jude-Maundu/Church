@@ -14,14 +14,22 @@ const Home = () => {
   const getMysteryOfTheDay = () => {
     const day = new Date().getDay(); // Sunday = 0
     switch (day) {
-      case 0: return "Glorious Mysteries";    // Sunday
-      case 1: return "Joyful Mysteries";      // Monday
-      case 2: return "Sorrowful Mysteries";   // Tuesday
-      case 3: return "Glorious Mysteries";    // Wednesday
-      case 4: return "Luminous Mysteries";    // Thursday
-      case 5: return "Sorrowful Mysteries";   // Friday
-      case 6: return "Joyful Mysteries";      // Saturday
-      default: return "";
+      case 0:
+        return "Glorious Mysteries"; // Sunday
+      case 1:
+        return "Joyful Mysteries"; // Monday
+      case 2:
+        return "Sorrowful Mysteries"; // Tuesday
+      case 3:
+        return "Glorious Mysteries"; // Wednesday
+      case 4:
+        return "Luminous Mysteries"; // Thursday
+      case 5:
+        return "Sorrowful Mysteries"; // Friday
+      case 6:
+        return "Joyful Mysteries"; // Saturday
+      default:
+        return "";
     }
   };
 
@@ -42,17 +50,18 @@ const Home = () => {
 
     // Fetch Daily Rosary
     const fetchRosary = async () => {
-  try {
-    const date = new Date().toISOString().split("T")[0]; // today’s date in YYYY-MM-DD
-    const res = await axios.get(`https://liturgy.day/api/rosary-days/${date}`);
-    setRosary(res.data);
-  } catch (error) {
-    console.error("Error fetching rosary:", error);
-  } finally {
-    setRosaryLoading(false);
-  }
-};
-
+      try {
+        const date = new Date().toISOString().split("T")[0]; // today’s date in YYYY-MM-DD
+        const res = await axios.get(
+          `https://liturgy.day/api/rosary-days/${date}`
+        );
+        setRosary(res.data);
+      } catch (error) {
+        console.error("Error fetching rosary:", error);
+      } finally {
+        setRosaryLoading(false);
+      }
+    };
 
     fetchReadings();
     fetchRosary();
@@ -82,69 +91,83 @@ const Home = () => {
       </section>
 
       {/* Mass Schedule + Latest Masses Section */}
-      <section className="container py-5 mass-section">
+      <section className="container py-5">
         <div className="row g-4 text-center align-items-stretch">
-          {/* Mass Schedule Card */}
+          {/* 🕊️ Mass Schedule Card */}
           <div className="col-md-6">
-            <div className="mass-schedule-card p-5 shadow-lg h-100">
+            <div
+              className="p-5 rounded-4 shadow-lg h-100 text-white"
+              style={{
+                background: "linear-gradient(135deg, #6f4e37, #8b5a2b)",
+              }}
+            >
               <div className="mb-4">
                 <i className="fas fa-church fa-3x mb-3"></i>
                 <h3 className="fw-bold mb-2">Mass Schedule</h3>
-                <div className="divider"></div>
+                <div
+                  style={{
+                    width: "60px",
+                    height: "4px",
+                    backgroundColor: "#f8f9fa",
+                    margin: "0 auto",
+                    borderRadius: "2px",
+                  }}
+                ></div>
               </div>
+
               <div className="fs-5">
-                <p>📅 <strong>Sunday:</strong> 7:00 AM, 9:00 AM & 10:00 AM</p>
-                <p>📅 <strong>WeekDays:</strong> 6:00 PM</p>
-                <p>📅 <strong>Thursdays (Adoration):</strong> 6:00 PM</p>
+                <p>
+                  📅 <strong>Sunday:</strong> 7:00 AM, 9:00 AM & 10:00 AM
+                </p>
+                <p>
+                  📅 <strong>Weekdays:</strong> 6:00 PM
+                </p>
+                <p>
+                  📅 <strong>Thursdays (Adoration):</strong> 6:00 PM
+                </p>
               </div>
-              <p className="mt-4 fst-italic text-light small">
+
+              <p className="mt-4 fst-italic small">
                 “Come, let us worship and bow down before the Lord our Maker.”
               </p>
             </div>
           </div>
 
-          {/* Latest Masses Card */}
+          {/* 🎥 Latest Masses Card */}
           <div className="col-md-6">
-            <div className="latest-masses-card p-5 shadow-lg bg-white h-100">
+            <div
+              className="p-5 rounded-4 shadow-lg h-100 d-flex flex-column justify-content-center"
+              style={{
+                background: "linear-gradient(135deg, #fff, #f8f9fa)",
+              }}
+            >
               <div className="mb-4">
-                <i className="fas fa-video fa-3x mb-3"></i>
-                <h3 className="fw-bold mb-2">Latest Masses</h3>
-                <div className="divider"></div>
+                <i className="fas fa-video fa-3x mb-3 text-danger"></i>
+                <h3 className="fw-bold mb-2 text-dark">Watch Latest Masses</h3>
+                <div
+                  style={{
+                    width: "60px",
+                    height: "4px",
+                    backgroundColor: "#6f4e37",
+                    margin: "0 auto",
+                    borderRadius: "2px",
+                  }}
+                ></div>
               </div>
-              <ul className="list-unstyled fs-5 text-start">
-                <li className="mb-3">
-                  <a
-                    href="https://youtube.com/@stjohntheevangelistparishk3514"
-                    className="latest-mass-link text-decoration-none d-flex align-items-center"
-                  >
-                    <i className="fas fa-play-circle me-2 text-warning"></i> Sunday Mass – Sept 15, 2025
-                  </a>
-                </li>
-                <li className="mb-3">
-                  <a
-                    href="https://youtube.com/@stjohntheevangelistparishk3514"
-                    className="latest-mass-link text-decoration-none d-flex align-items-center"
-                  >
-                    <i className="fas fa-play-circle me-2 text-warning"></i> Morning Mass – Sept 14, 2025
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://youtube.com/@stjohntheevangelistparishk3514"
-                    className="latest-mass-link text-decoration-none d-flex align-items-center"
-                  >
-                    <i className="fas fa-play-circle me-2 text-warning"></i> Evening Mass – Sept 13, 2025
-                  </a>
-                </li>
-              </ul>
-              <div className="mt-4">
+
+              <p className="fs-5 text-muted mb-4">
+                Watch our latest and past Masses from St. John the Evangelist
+                Parish on YouTube.
+              </p>
+
+              <div>
                 <a
                   href="https://youtube.com/@stjohntheevangelistparishk3514"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="youtube-btn btn btn-outline-dark px-4 py-2 rounded-pill"
+                  className="btn btn-danger px-5 py-2 rounded-pill fw-semibold shadow-sm"
                 >
-                  <i className="fab fa-youtube me-2 text-danger"></i> Watch More on YouTube
+                  <i className="fab fa-youtube me-2"></i> Visit YouTube Channel
                 </a>
               </div>
             </div>
@@ -173,7 +196,8 @@ const Home = () => {
                 <div className="reading-card mx-auto p-4 rounded-4 shadow-lg bg-white">
                   <h4 className="fw-bold text-dark mb-2">{readings.title}</h4>
                   <p className="text-muted mb-3">
-                    <i className="fa-solid fa-calendar me-2"></i> {readings.date}
+                    <i className="fa-solid fa-calendar me-2"></i>{" "}
+                    {readings.date}
                   </p>
                   <p className="text-dark fs-5">{readings.content}</p>
                   {readings.source && (
@@ -200,7 +224,8 @@ const Home = () => {
                 <div className="rosary-card mx-auto p-4 rounded-4 shadow-lg bg-white">
                   <h4 className="fw-bold text-dark mb-2">Daily Rosary</h4>
                   <p className="text-muted mb-3">
-                    <i className="fa-solid fa-calendar me-2"></i> {new Date().toLocaleDateString()}
+                    <i className="fa-solid fa-calendar me-2"></i>{" "}
+                    {new Date().toLocaleDateString()}
                   </p>
                   <p className="text-dark fs-5">
                     🌿 Today's Rosary: {getMysteryOfTheDay()}
@@ -211,7 +236,7 @@ const Home = () => {
                     </ul>
                   </p>
                   <a
-                    href={rosary.pdf || "/rosary-guide.pdf"} 
+                    href={rosary.pdf || "/rosary-guide.pdf"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-outline-dark mt-3 rounded-pill px-4 py-2"
@@ -234,7 +259,8 @@ const Home = () => {
             <h2 className="fw-bold mb-2">About Us</h2>
             <div className="divider"></div>
             <p className="mt-3 text-muted fs-5">
-              We are a faith-driven community rooted in worship, service, and love.
+              We are a faith-driven community rooted in worship, service, and
+              love.
             </p>
           </div>
           <div className="row g-4">
@@ -245,7 +271,8 @@ const Home = () => {
                 imageSrc={process.env.PUBLIC_URL + "/DSC_0150.jpg"}
                 imageAlt="Church building"
               >
-                A sacred space where we gather to celebrate the sacraments, strengthen faith, and grow in love.
+                A sacred space where we gather to celebrate the sacraments,
+                strengthen faith, and grow in love.
               </InfoCard>
             </div>
             <div className="col-md-4">
@@ -255,7 +282,8 @@ const Home = () => {
                 imageSrc={process.env.PUBLIC_URL + "/DSC_1655.jpg"}
                 imageAlt="Priests"
               >
-                Faithful shepherds who guide our parish with wisdom, humility, and devotion to Christ’s mission.
+                Faithful shepherds who guide our parish with wisdom, humility,
+                and devotion to Christ’s mission.
               </InfoCard>
             </div>
             <div className="col-md-4">
@@ -265,7 +293,8 @@ const Home = () => {
                 imageSrc={process.env.PUBLIC_URL + "/IMG_3835.jpg"}
                 imageAlt="Community"
               >
-                United in spirit, our parish family stands together in prayer, service, and compassion for one another.
+                United in spirit, our parish family stands together in prayer,
+                service, and compassion for one another.
               </InfoCard>
             </div>
           </div>

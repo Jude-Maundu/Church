@@ -1,47 +1,156 @@
-import React from 'react';
-import { Container, Card, ListGroup, Alert } from 'react-bootstrap';
+import React from "react";
+import { Container, Card, ListGroup, Alert, Row, Col } from "react-bootstrap";
 
 const MarriageRequirements = () => {
+  const galleryImages = [
+    "/images/wedding-altar.jpg",
+    "/images/church-wedding.jpg",
+    "/images/wedding-rings.jpg",
+  ];
+
   return (
     <Container className="my-5">
-      <Card className="shadow-lg" bg="light">
+      <Card
+        className="shadow-lg border-0 rounded-4"
+        style={{
+          background: "linear-gradient(180deg, #ffffff, #f9f9f9)",
+          padding: "2rem",
+        }}
+      >
         <Card.Body>
-          <h1 className="text-center display-4 fw-bold mb-4">Marriage Requirements</h1>
-          <ListGroup as="ol" numbered>
-            <ListGroup.Item as="li">Make sure you see the parish priest of St. John the Evangelist Parish first before you fix your date of marriage, at least three months before. The people to marry are the ones to book the wedding in person – NOT THROUGH PARENTS OR FRIENDS. They must both present themselves physically to the parish office for the process of marriage booking and preparations to start.</ListGroup.Item>
-            <ListGroup.Item as="li">If you are not from St. John’s Parish, make sure you bring a letter of introduction to St. John Parish from your parish priest indicating that he is aware of your wedding plans.</ListGroup.Item>
-            <ListGroup.Item as="li">You must bring your Baptismal Certificate as proof that you are baptized. For a Mixed Marriage where one person is not catholic (Protestant) then you will need the permission of the Bishop of Nairobi; by both bride and bridegroom filling forms together in the Father’s Office, at latest two months before the wedding. The forms are then taken to the Bishop who will study the situation and sign the “Dispensation from canonical form of marriage” to allow the marriage to go on.</ListGroup.Item>
-            <ListGroup.Item as="li">You will need to have at least five marriage sessions (instructions) before the marriage ceremony. Arrange this with the priest to officiate your wedding two months before the wedding.</ListGroup.Item>
-            <ListGroup.Item as="li">You will need to go to Sheria House to obtain a Government of Kenya Registrar Certificate within three months before the wedding. Sheria House will require you to take from St. John’s Parish a copy of the Priest’s License to officiate marriage and the registration number of the parish’s marriage Certificate book. If you are already in a Civil Marriage all of the above in this number is not required.</ListGroup.Item>
-            <ListGroup.Item as="li">Both the bridegroom and bride will fill out forms from St. John the Evangelist Church and return them to the same place in good time.</ListGroup.Item>
-            <ListGroup.Item as="li">Rehearsals for your wedding must be arranged with our office in good time. The actual rehearsal will be done in the Church three days before the wedding.</ListGroup.Item>
-            <ListGroup.Item as="li">The Sacrament of Reconciliation (confession) is necessary for those to marry a day or so before the wedding.</ListGroup.Item>
-            <ListGroup.Item as="li">The best man and best maid should be practicing Catholics. If they are not catholic you need to discuss the matter with the parish priest first at St. John’s. The best couple should produce a copy of their marriage certificate.</ListGroup.Item>
-            <ListGroup.Item as="li">You will pay Ksh. 15,000 which will be used to prepare the church for the wedding, pay for security, process the Marriage Certificate, and other related costs. To discourage lateness we ask you to deposit Ksh. 5,000 which is refundable if you are on time on the day of the wedding. If you are late it will not be refunded. So the total to pay is Ksh. 20,000. Half of the amount should be paid at booking.</ListGroup.Item>
-            <ListGroup.Item as="li">During your wedding, prepare three flowers of the same size for the altar which should remain in the church after the celebration.</ListGroup.Item>
-            <ListGroup.Item as="li">Hall booking is Ksh. 20,000 for reception from 6:00 A.M to 6:00 P.M. After 6:00 P.M one is penalized Ksh. 10,000 which caters for cleaning and late departure. Music MUST be regulated.</ListGroup.Item>
-            <ListGroup.Item as="li">Prepare a stipend of not less than Ksh. 5,000 for the officiating Priest to be deposited at the office of the parish secretary before the actual wedding day.</ListGroup.Item>
-            <ListGroup.Item as="li">There is a facility for live streaming of the ceremony. This is optional for those who wish to have it; the charge is Ksh. 5,000.</ListGroup.Item>
-            <ListGroup.Item as="li">Your wedding announcements (Banns) will be made three times in your home parish. You must bring to St. John’s Office the contact/s of your parish/priest where the banns will be sent.</ListGroup.Item>
-            <ListGroup.Item as="li">Both the bride and bridegroom must meet with the priest at the parish (St. John the Evangelist) to finalize the marriage arrangements two weeks before the wedding.</ListGroup.Item>
-            <ListGroup.Item as="li">Offertory gifts: wine, host & other gifts like foodstuffs, tissue papers etc.</ListGroup.Item>
-            <ListGroup.Item as="li">You must bring a Copy of your I.D./Passport to the parish office.</ListGroup.Item>
-            <ListGroup.Item as="li">The priest’s office day is THURSDAY for marriage matters.</ListGroup.Item>
+          {/* 🕊️ Header */}
+          <div className="text-center mb-4">
+            <i
+              className="fas fa-ring mb-3"
+              style={{ fontSize: "3rem", color: "#c49b63" }}
+            ></i>
+            <h1 className="fw-bold text-dark display-5">
+              Marriage Requirements
+            </h1>
+            <p className="text-muted fst-italic mt-2">
+              “Therefore what God has joined together, let no one separate.” – Mark 10:9
+            </p>
+          </div>
+
+          {/* 📸 Image Gallery Section */}
+          <Row className="g-4 mb-5">
+            {galleryImages.map((img, i) => (
+              <Col md={4} key={i}>
+                <div
+                  className="shadow-sm rounded-4 overflow-hidden"
+                  style={{
+                    height: "230px",
+                    border: "3px solid #f0e6d2",
+                  }}
+                >
+                  <img
+                    src={img}
+                    alt={`Marriage photo ${i + 1}`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      transition: "transform 0.3s ease",
+                    }}
+                    onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+                    onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                  />
+                </div>
+              </Col>
+            ))}
+          </Row>
+
+          {/* 📜 Requirements List */}
+          <ListGroup as="ol" numbered variant="flush">
+            {[
+              "Make sure you see the parish priest of St. John the Evangelist Parish first before you fix your date of marriage...",
+              "If you are not from St. John’s Parish, bring a letter of introduction from your parish priest...",
+              "Bring your Baptismal Certificate as proof that you are baptized. For Mixed Marriages, Bishop’s permission is required...",
+              "You will need at least five marriage sessions (instructions) before the marriage ceremony...",
+              "Go to Sheria House to obtain a Registrar Certificate within three months before the wedding...",
+              "Both the bridegroom and bride must fill out and return forms from St. John’s in good time.",
+              "Wedding rehearsals must be arranged early. The actual rehearsal will be three days before the wedding.",
+              "Confession is necessary a day or so before the wedding.",
+              "The best man and best maid should be practicing Catholics.",
+              "You will pay Ksh. 20,000 (Ksh. 15,000 + Ksh. 5,000 refundable if punctual).",
+              "Prepare three altar flowers of equal size for the celebration.",
+              "Hall booking: Ksh. 20,000 (6 AM – 6 PM). Late departures attract a Ksh. 10,000 penalty.",
+              "Prepare a stipend of not less than Ksh. 5,000 for the officiating priest.",
+              "Live streaming is available optionally at Ksh. 5,000.",
+              "Wedding announcements (Banns) will be made thrice in your home parish.",
+              "Meet with the priest at least two weeks before the wedding to finalize arrangements.",
+              "Offertory gifts: wine, host, and other gifts (e.g., foodstuffs, tissue).",
+              "Bring a copy of your I.D./Passport to the parish office.",
+              "The priest’s office day for marriage matters is THURSDAY.",
+            ].map((req, i) => (
+              <ListGroup.Item
+                key={i}
+                as="li"
+                className="py-3 px-3 bg-transparent border-0"
+                style={{
+                  borderLeft: "4px solid #c49b63",
+                  backgroundColor: i % 2 === 0 ? "#fcfcfc" : "#f6f6f6",
+                }}
+              >
+                {req}
+              </ListGroup.Item>
+            ))}
           </ListGroup>
 
-          <Alert variant="secondary" className="mt-4">
-            <Alert.Heading as="h4" className="text-center">For More Info Contact the Parish Office</Alert.Heading>
-            <p className="text-center">Your opinions are important to us. Whether it is a simple question or a valuable suggestion. You can call us by phone or email us directly.</p>
+          {/* 📞 Contact Section */}
+          <Alert
+            variant="light"
+            className="mt-5 text-center border-0 shadow-sm rounded-4"
+            style={{
+              background: "linear-gradient(180deg, #fff8e1, #fff)",
+            }}
+          >
+            <Alert.Heading as="h4" className="fw-bold text-dark">
+              For More Info Contact the Parish Office
+            </Alert.Heading>
+            <p className="text-muted">
+              Your opinions are important to us. Whether it’s a simple question or
+              a valuable suggestion — reach out anytime.
+            </p>
             <hr />
-            <div className="text-center">
-              <p className="mb-1"><i className="fas fa-phone me-2"></i>0797828903</p>
-              <p className="mb-0"><i className="fas fa-envelope me-2"></i>info@stjohntheevangelisttchurch.co.ke</p>
-              <div className="mt-3">
-                {/* Replace # with actual links */}
-                <a href="#!" aria-label="Facebook" className="btn btn-outline-primary mx-1"><i className="fab fa-facebook-f"></i></a>
-                <a href="#!" aria-label="Email" className="btn btn-outline-secondary mx-1"><i className="fas fa-envelope"></i></a>
-                <a href="#!" aria-label="WhatsApp" className="btn btn-outline-success mx-1"><i className="fab fa-whatsapp"></i></a>
-                <a href="#!" aria-label="X" className="btn btn-outline-dark mx-1"><i className="fab fa-twitter"></i></a>
+            <div>
+              <p className="mb-1 text-dark">
+                <i className="fas fa-phone me-2 text-success"></i>0797828903
+              </p>
+              <p className="mb-3 text-dark">
+                <i className="fas fa-envelope me-2 text-primary"></i>
+                info@stjohntheevangelisttchurch.co.ke
+              </p>
+
+              <div className="mt-3 d-flex justify-content-center gap-2">
+                <a
+                  href="#!"
+                  className="btn btn-outline-primary rounded-circle"
+                  aria-label="Facebook"
+                >
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="#!"
+                  className="btn btn-outline-success rounded-circle"
+                  aria-label="WhatsApp"
+                >
+                  <i className="fab fa-whatsapp"></i>
+                </a>
+                <a
+                  href="#!"
+                  className="btn btn-outline-dark rounded-circle"
+                  aria-label="X"
+                >
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="#!"
+                  className="btn btn-outline-secondary rounded-circle"
+                  aria-label="Email"
+                >
+                  <i className="fas fa-envelope"></i>
+                </a>
               </div>
             </div>
           </Alert>
