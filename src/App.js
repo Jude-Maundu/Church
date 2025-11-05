@@ -4,7 +4,7 @@ import "./App.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import ShareButtons from "./Components/ShareButtons";
 
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -52,6 +52,16 @@ import Eucharist from "./Components/Pages/Sacraments/Eucharist";
 import HolyOrders from "./Components/Pages/Sacraments/HolyOrders";
 import Baptism from "./Components/Pages/Sacraments/Baptism";
 
+// Church
+import ChurchHistory from "./Components/Pages/Church/ChurchHistory";
+
+// Admin
+import AdminLayout from "./admin/AdminLayout";
+import AdminDashboard from "./admin/AdminDashboard";
+import AdminHomeEditor from "./admin/AdminHomeEditor";
+import AdminContactEditor from "./admin/AdminContactEditor";
+import AdminAssistantEditor from "./admin/AdminAssistantEditor";
+import AdminPageEditor from "./admin/AdminPageEditor";
 
 function App() {
   return (
@@ -100,6 +110,19 @@ function App() {
             <Route path="sacraments/eucharist" element={<Eucharist />} />
             <Route path="sacraments/holy-orders" element={<HolyOrders />} />
             <Route path="sacraments/baptism" element={<Baptism />} />
+
+            {/* Church */}
+            <Route path="church/history" element={<ChurchHistory />} />
+            
+            {/* Admin */}
+            <Route path="admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="home" element={<AdminHomeEditor />} />
+              <Route path="contact" element={<AdminContactEditor />} />
+              <Route path="assistant" element={<AdminAssistantEditor />} />
+              <Route path="pages" element={<AdminPageEditor />} />
+            </Route>
+            
 
             
 

@@ -1,10 +1,11 @@
 .footer-section {
-  /* Glassmorphism effect */
-  background: rgba(40, 30, 25, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  /* Enhanced visibility */
+  background: linear-gradient(135deg, rgba(40, 30, 25, 0.95), rgba(60, 44, 36, 0.95));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 2px solid rgba(236, 192, 71, 0.35);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .footer-section p {
@@ -13,16 +14,20 @@
 
 .footer-title {
   color: var(--gold-glow);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .footer-link {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.92);
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  transition: color 0.25s ease, transform 0.2s ease;
 }
 
 .footer-link:hover {
   color: #fff;
+  transform: translateX(2px);
 }
 
 .social-icon {
@@ -32,16 +37,21 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
   color: #fff;
   margin: 0 8px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .social-icon:hover {
   background-color: var(--gold-glow);
   color: var(--brown-dark);
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* subtle divider */
+.footer-section hr {
+  border-color: rgba(255, 255, 255, 0.2);
 }

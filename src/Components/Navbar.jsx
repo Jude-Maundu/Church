@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,50 +27,74 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
 
+    // Reinstated event listeners for the Offcanvas (SideMenu)
     const sideMenu = document.getElementById("sideMenu");
     if (sideMenu) {
-      sideMenu.addEventListener("show.bs.offcanvas", () => setMenuOpen(true));
-      sideMenu.addEventListener("hide.bs.offcanvas", () => setMenuOpen(false));
-    }
+      const showHandler = () => setMenuOpen(true);
+      const hideHandler = () => setMenuOpen(false);
 
+      sideMenu.addEventListener("show.bs.offcanvas", showHandler);
+      sideMenu.addEventListener("hide.bs.offcanvas", hideHandler);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+        sideMenu.removeEventListener("show.bs.offcanvas", showHandler);
+        sideMenu.removeEventListener("hide.bs.offcanvas", hideHandler);
+      };
+    }
+    
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      if (sideMenu) {
-        sideMenu.removeEventListener("show.bs.offcanvas", () => setMenuOpen(true));
-        sideMenu.removeEventListener("hide.bs.offcanvas", () => setMenuOpen(false));
-      }
     };
   }, [location]);
 
+  const collapseNavbar = () => {
+    const nav = document.getElementById('navbarNav');
+    if (!nav || !window.bootstrap) return;
+    let instance = window.bootstrap.Collapse.getInstance(nav);
+    if (!instance) instance = new window.bootstrap.Collapse(nav, { toggle: false });
+    instance.hide();
+  };
+
   const scrollToSection = (id) => {
     if (location.pathname !== "/") {
-      window.location.href = `/#${id}`;
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 0);
+      collapseNavbar();
       return;
     }
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+    // collapse navbar after navigation
+    collapseNavbar();
   };
 
   return (
     <div className="floating-navbar-container">
       <nav
-        className={`navbar navbar-expand-lg glass-navbar shadow-lg py-2 ${
-          scrolled ? "scrolled" : ""
-        } ${menuOpen ? "shifted" : ""}`}
+        className={`navbar navbar-expand-lg py-2 glass-navbar ${scrolled ? "scrolled" : ""} ${menuOpen ? "shifted" : ""}`}
       >
         <div className="container-fluid d-flex justify-content-between align-items-center">
           {/* Logo */}
           <a
             className="navbar-brand d-flex align-items-center fw-bold text-white"
             href="#home"
-            onClick={() => scrollToSection("home")}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("home");
+            }}
           >
             <img
               src="evangeist-logoz.jpg"
               alt="Logo"
-              className={`nav-logo ${scrolled ? "small" : ""}`}
+              className={`nav-logo ${scrolled ? 'small' : ''}`}
             />
             <span className="ms-2 logo-text">Evangelist</span>
           </a>
@@ -85,7 +109,7 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <i className="fa-solid fa-bars text-white fs-4"></i>
+            <i className="fa-solid fa-bars fs-4 text-white"></i>
           </button>
 
           {/* Links */}
@@ -94,49 +118,45 @@ const Navbar = () => {
             id="navbarNav"
           >
             <ul className="navbar-nav d-flex flex-lg-row flex-column align-items-lg-center gap-3 mt-3 mt-lg-0">
-              <li className="nav-item">
-                <span
-                  className={`nav-link ${
-                    activeSection === "home" ? "active" : ""
-                  }`}
-                  onClick={() => scrollToSection("home")}
-                >
-                  <i className="fa-solid fa-house me-1"></i> Home
-                </span>
-              </li>
-              <li className="nav-item">
-                <span
-                  className={`nav-link ${
-                    activeSection === "about" ? "active" : ""
-                  }`}
-                  onClick={() => scrollToSection("about")}
-                >
-                  <i className="fa-solid fa-star me-1"></i> About
-                </span>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/contact">
-                  <i className="fa-solid fa-phone me-1"></i> Contact
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/announcements">
-                  <i className="fa-solid fa-bullhorn me-1"></i> Announcements
-                </Link>
-              </li>
-                         {/* Side Menu Toggle */}
-              <button
-              className="btn btn-light btn-glass ms-lg-3 mt-3 mt-lg-0"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#sideMenu"
-            >
-              <i className="fa-solid fa-bars"></i> Menu
-            </button>
-            </ul>
+              {/* Function to get dynamic link styles */}
+              {['home', 'about', 'contact', 'announcements'].map((sectionName) => {
+                const isActive = (location.pathname === '/' && activeSection === sectionName) || 
+                                 (location.pathname === `/${sectionName}` && sectionName !== 'home' && sectionName !== 'about');
 
-       
-            
+                // Handle the first two (scrolling to sections)
+                if (sectionName === 'home' || sectionName === 'about') {
+                  return (
+                    <li className="nav-item" key={sectionName}>
+                      <span
+                        className={`nav-link ${isActive ? 'active' : ''}`}
+                        onClick={() => scrollToSection(sectionName)}
+                      >
+                        <i className={`fa-solid fa-${sectionName === 'home' ? 'house' : 'star'} me-1`}></i> {sectionName.charAt(0).toUpperCase() + sectionName.slice(1)}
+                      </span>
+                    </li>
+                  );
+                }
+                
+                // Handle the last two (routing)
+                return (
+                  <li className="nav-item" key={sectionName}>
+                    <Link className={`nav-link ${isActive ? 'active' : ''}`} to={`/${sectionName}`} onClick={() => collapseNavbar()}>
+                      <i className={`fa-solid fa-${sectionName === 'contact' ? 'phone' : 'bullhorn'} me-1`}></i> {sectionName.charAt(0).toUpperCase() + sectionName.slice(1)}
+                    </Link>
+                  </li>
+                );
+              })}
+
+              {/* Side Menu Toggle */}
+              <button
+                className="btn btn-glass ms-lg-3 mt-3 mt-lg-0"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#sideMenu"
+              >
+                <i className="fa fa-bars me-1"></i> Menu
+              </button>
+            </ul>
           </div>
         </div>
       </nav>

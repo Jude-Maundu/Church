@@ -9,13 +9,12 @@ const SideMenu = () => {
     const offcanvasEl = document.getElementById("sideMenu");
     if (!offcanvasEl) return;
 
-    // Get or create Bootstrap Offcanvas instance safely
     let offcanvas = window.bootstrap.Offcanvas.getInstance(offcanvasEl);
     if (!offcanvas) {
       offcanvas = new window.bootstrap.Offcanvas(offcanvasEl);
     }
 
-    offcanvas.hide(); // 👈 This ensures it actually closes
+    offcanvas.hide(); 
   };
 
   const toggleDropdown = (name) => {
@@ -47,7 +46,7 @@ const SideMenu = () => {
       links: [
         { name: "About Us", path: "/about" },
         { name: "Contact Us", path: "/contact" },
-        { name: "Our History", path: "/history" },
+        { name: "Our History", path: "church/history" },
         { name: "Catechist Pastoral Office" },
         { name: "Priests" },
         { name: "PPC Executive" },

@@ -1,0 +1,83 @@
+.assistant {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1200;
+}
+
+.assistant-toggle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #6f4e37, #8b5a2b);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  font-size: 1.25rem;
+}
+
+.assistant-panel {
+  width: 340px;
+  max-height: 70vh;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.assistant-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: rgba(111, 78, 55, 0.9);
+  color: #fff;
+}
+
+.assistant-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.assistant-body {
+  padding: 12px;
+  overflow-y: auto;
+  background: #f7f3ef;
+  flex: 1;
+}
+
+.assistant-empty {
+  text-align: center;
+  padding: 24px 8px;
+}
+
+.assistant-msg { display: flex; margin: 8px 0; }
+.assistant-msg.user { justify-content: flex-end; }
+.assistant-msg.assistant { justify-content: flex-start; }
+
+.assistant-msg .bubble {
+  max-width: 80%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.assistant-msg.user .bubble { background: #fff; }
+.assistant-msg.assistant .bubble { background: #fff4df; }
+
+.assistant-footer { padding: 10px; background: #fff; border-top: 1px solid #eee; }
+.assistant-input { display: flex; gap: 8px; align-items: center; }
+.assistant-input input { flex: 1; border: 1px solid #ddd; border-radius: 999px; padding: 10px 12px; }
+.assistant-input .mic { border: none; background: #f2e9e1; color: #6f4e37; border-radius: 50%; width: 38px; height: 38px; display:flex; align-items:center; justify-content:center; }
+.assistant-input .mic.listening { background: #ffd7a8; }
+.assistant-input .send { border: none; background: #6f4e37; color: #fff; border-radius: 999px; padding: 8px 12px; }
+
+@media (max-width: 480px) {
+  .assistant-panel { width: calc(100vw - 24px); right: 12px; bottom: 12px; }
+}
+
+

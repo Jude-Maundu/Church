@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ContentContext } from "../ContentContext";
 
 const Contact = () => {
+  const { content } = useContext(ContentContext);
   // State for form fields
   const [formData, setFormData] = useState({
     name: "",
@@ -56,15 +58,15 @@ const Contact = () => {
               </h4>
               <p className="text-dark mb-2">
                 <i className="fa-solid fa-location-dot me-2"></i>
-                St John the Evangelist Parish, Karen, Nairobi, Kenya
+                {content?.contact?.address || "St John the Evangelist Parish, Karen, Nairobi, Kenya"}
               </p>
               <p className="text-dark mb-2">
                 <i className="fa-solid fa-phone me-2"></i>
-                +254 700 123 456
+                {content?.contact?.phonePrimary || "+254 700 123 456"}
               </p>
               <p className="text-dark mb-2">
                 <i className="fa-solid fa-envelope me-2"></i>
-                info@stjohnkaren.org
+                {content?.contact?.email || "info@stjohnkaren.org"}
               </p>
               <p className="text-dark">
                 <i className="fa-solid fa-clock me-2"></i>

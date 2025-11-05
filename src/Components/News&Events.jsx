@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ContentContext } from "../ContentContext";
 
 const NewsAndEvents = () => {
   const events = [
@@ -25,6 +26,7 @@ const NewsAndEvents = () => {
     },
   ];
 
+  const { getText } = useContext(ContentContext);
   return (
     <section
       id="events"
@@ -39,10 +41,8 @@ const NewsAndEvents = () => {
     >
       <div className="container">
         <div className="text-center mb-5 mt-5">
-          <h2 className="fw-bold display-5 text-dark">News & Events</h2>
-          <p className="lead text-dark">
-            Stay up to date with the latest happenings and upcoming events at St John the Evangelist Parish.
-          </p>
+          <h2 className="fw-bold display-5 text-dark">{getText('news','title','News & Events')}</h2>
+          <p className="lead text-dark">{getText('news','intro','Stay up to date with the latest happenings and upcoming events at St John the Evangelist Parish.')}</p>
         </div>
 
         <div className="row g-4">

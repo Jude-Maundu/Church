@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { ContentContext } from "../ContentContext";
 import axios from "axios";
 import { jsPDF } from "jspdf";
 
@@ -89,6 +90,7 @@ const Announcements = () => {
     doc.save("Church_Announcements.pdf");
   };
 
+  const { getText, content } = useContext(ContentContext);
   return (
     <section
       id="announcements"
@@ -103,9 +105,9 @@ const Announcements = () => {
     >
       <div className="container">
         <div className="text-center mb-5 mt-5">
-          <h2 className="fw-bold display-5 text-dark">Church Announcements</h2>
+          <h2 className="fw-bold display-5 text-dark">{getText('announcements','title','Church Announcements')}</h2>
           <p className="lead text-dark">
-            Stay updated with all the latest news and announcements from St John the Evangelist Parish.
+            {getText('announcements','intro','Stay updated with all the latest news and announcements from St John the Evangelist Parish.')}
           </p>
 
           {/* PDF Download Button */}
@@ -117,6 +119,32 @@ const Announcements = () => {
             <i className="fa-solid fa-download me-2"></i> Download Styled PDF
           </button>
         </div>
+
+        {/* Attached PDFs (from Admin) - inline viewers with download links */}
+        {(content?.pages?.announcements?.pdfs || []).length > 0 && (
+          <div className="mb-5">
+            {(content.pages.announcements.pdfs).map((p, idx) => (
+              <div key={idx} className="mb-4">
+                <div className="d-flex justify-content-between align-items-center mb-2">
+                  <div className="fw-semibold text-dark">
+                    <i className="fa-regular fa-file-pdf me-2 text-danger"></i>
+                    {p.name}
+                  </div>
+                  <a href={p.dataUrl} download={p.name} className="btn btn-sm btn-outline-dark rounded-pill">
+                    <i className="fa-solid fa-download me-1"></i> Download
+                  </a>
+                </div>
+                <div style={{ border: '1px solid #e5e5e5', borderRadius: '12px', overflow: 'hidden' }}>
+                  <iframe
+                    title={`announcement-pdf-${idx}`}
+                    src={p.dataUrl}
+                    style={{ width: '100%', height: '70vh' }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* 🌀 Content Display */}
         {loading ? (

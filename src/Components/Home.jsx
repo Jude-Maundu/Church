@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
+import { ContentContext } from "../ContentContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import InfoCard from "./InfoCard";
 import "./Home.css";
 
 const Home = () => {
+  const { content } = useContext(ContentContext);
   const [readings, setReadings] = useState(null);
   const [readingsLoading, setReadingsLoading] = useState(true);
   const [rosary, setRosary] = useState(null);
@@ -73,11 +75,10 @@ const Home = () => {
       <section className="home-hero d-flex flex-column align-items-center justify-content-center text-center">
         <div className="hero-content mt-3 p-4 rounded-4 shadow-lg">
           <h1 className="fw-bold mb-3 display-4 text-dark">
-            Welcome to <br /> St John the Evangelist Parish
+            {content?.home?.heroTitle || "Welcome to St John the Evangelist Parish"}
           </h1>
           <p className="lead mb-0 text-dark">
-            A place of worship, community, and growth. Join us in celebrating
-            faith, hope, and love through our services, events, and fellowship.
+            {content?.home?.heroSubtitle || "A place of worship, community, and growth. Join us in celebrating faith, hope, and love through our services, events, and fellowship."}
           </p>
           <div className="mt-4">
             <Link to="/about" className="btn btn-light me-3 px-4 py-2 hero-btn">
@@ -117,13 +118,13 @@ const Home = () => {
 
               <div className="fs-5">
                 <p>
-                  📅 <strong>Sunday:</strong> 7:00 AM, 9:00 AM & 10:00 AM
+                  📅 <strong>Sunday:</strong> {content?.home?.massSchedule?.sunday || "7:00 AM, 9:00 AM & 10:00 AM"}
                 </p>
                 <p>
-                  📅 <strong>Weekdays:</strong> 6:00 PM
+                  📅 <strong>Weekdays:</strong> {content?.home?.massSchedule?.weekdays || "6:00 PM"}
                 </p>
                 <p>
-                  📅 <strong>Thursdays (Adoration):</strong> 6:00 PM
+                  📅 <strong>Thursdays (Adoration):</strong> {content?.home?.massSchedule?.thursdays || "6:00 PM"}
                 </p>
               </div>
 
@@ -171,6 +172,50 @@ const Home = () => {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Image Carousel */}
+      <section className="gallery-section py-5">
+        <div className="container">
+          <div className="text-center mb-4">
+            <h2 className="fw-bold mb-2 text-dark">Image Gallery</h2>
+            <div className="divider"></div>
+            <p className="text-muted">Moments from our parish life.</p>
+          </div>
+
+          <div id="homeGallery" className="carousel slide gallery-carousel" data-bs-ride="carousel">
+            <div className="carousel-indicators">
+              {[0,1,2,3].map((i) => (
+                <button
+                  key={i}
+                  type="button"
+                  data-bs-target="#homeGallery"
+                  data-bs-slide-to={i}
+                  className={i === 0 ? "active" : ""}
+                  aria-current={i === 0 ? "true" : undefined}
+                  aria-label={`Slide ${i + 1}`}
+                ></button>
+              ))}
+            </div>
+
+            <div className="carousel-inner">
+              {(content?.home?.gallery || []).map((src, idx) => (
+                <div className={`carousel-item ${idx === 0 ? 'active' : ''}`} key={idx}>
+                  <img src={(src.startsWith('/') ? process.env.PUBLIC_URL + src : src)} className="d-block w-100" alt={`Parish ${idx + 1}`} loading="lazy" />
+                </div>
+              ))}
+            </div>
+
+            <button className="carousel-control-prev" type="button" data-bs-target="#homeGallery" data-bs-slide="prev">
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-bs-target="#homeGallery" data-bs-slide="next">
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
       </section>
