@@ -1,6 +1,13 @@
 .footer-section {
   /* Enhanced visibility */
-  background: linear-gradient(135deg, rgba(40, 30, 25, 0.95), rgba(60, 44, 36, 0.95));
+background: linear-gradient(
+  135deg, 
+  rgba(211, 139, 103, 0.95) 0%, 
+  rgba(211, 139, 103, 0.85) 40%, 
+  rgba(158, 73, 20, 0.9) 70%, 
+  rgba(117, 41, 3, 0.95) 100%
+);
+
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-top: 2px solid rgba(236, 192, 71, 0.35);
@@ -49,6 +56,32 @@
   color: var(--brown-dark);
   transform: translateY(-4px) scale(1.08);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Back to Top Button */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 100px; /* Adjust to be above the AI assistant button */
+  right: 30px;
+  background-color: var(--gold-glow); /* Using a defined variable or a suitable color */
+  color: var(--brown-dark);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1000; /* Ensure it's above other content but below AI assistant if needed */
+}
+
+.back-to-top-btn:hover {
+  background-color: #e6c26b; /* Slightly darker gold on hover */
+  transform: translateY(-2px) scale(1.05);
 }
 
 /* subtle divider */

@@ -68,23 +68,34 @@ const Footer = () => {
           {/* Social Icons */}
           <div className="col-md-6 text-center text-md-end mt-3 mt-md-0">
             <div className="social-icons">
-              <a href="#!" className="social-icon">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="#!" className="social-icon">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="#!" className="social-icon">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <i className="fab fa-instagram"></i>
               </a>
               <a
                 href="https://youtube.com/@stjohntheevangelistparishk3514"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="social-icon"
               >
                 <i className="fab fa-youtube"></i>
               </a>
             </div>
           </div>
+
+          {/* Back to Top Button */}
+          <button
+            className="back-to-top-btn"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            title="Back to Top"
+          >
+            <i className="fas fa-arrow-up"></i>
+          </button>
         </div>
       </div>
     </footer>

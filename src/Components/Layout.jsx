@@ -3,7 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import SideMenu from "./SideMenu";
 import Footer from "./Footer";
-import Assistant from "./Assistant";
+import AiAssistant from "./AiAssistant";
 import { ContentProvider } from "../ContentContext";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -39,7 +39,8 @@ const Layout = () => {
         </div>
 
         <Footer />
-        <Assistant />
+        <AiAssistant />
+
       </div>
     </ContentProvider>
   );

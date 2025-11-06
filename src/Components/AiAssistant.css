@@ -1,0 +1,221 @@
+.ai-assistant-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1050;
+  }
+  
+  .chat-toggle-btn {
+    background-color: #6f4e37; /* Church brown */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .chat-toggle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  }
+  
+  .chat-window {
+    width: 370px;
+    max-height: 80vh;
+    /* Glassmorphism effect */
+    background-color: rgba(253, 252, 245, 0.65); /* Semi-transparent background */
+    -webkit-backdrop-filter: blur(15px); /* For Safari */
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+  }
+  
+  .chat-header {
+    background: rgba(111, 78, 55, 0.7); /* Semi-transparent header */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .chat-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  
+  .clear-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+  
+  .help-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+
+  .close-btn:hover {
+    opacity: 1;
+  }
+  
+  .chat-body {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(80vh - 140px); /* Adjust based on header/footer height */
+  }
+  
+  .chat-message {
+    margin-bottom: 15px;
+    display: flex;
+  }
+  
+  .chat-message p {
+    margin: 0;
+    padding: 12px 16px;
+    border-radius: 18px;
+    max-width: 80%;
+    line-height: 1.5;
+  }
+  
+  .chat-message.user {
+    justify-content: flex-end;
+  }
+  
+  .chat-message.user p {
+    background-color: #6f4e37;
+    color: white;
+    border-bottom-right-radius: 4px;
+  }
+  
+  .chat-message.bot p {
+    background-color: #e9ecef;
+    color: #333;
+    border-bottom-left-radius: 4px;
+  }
+  
+  .chat-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent footer */
+  }
+  
+  .typing-indicator {
+    display: flex;
+    padding: 10px 15px;
+  }
+  
+  .typing-indicator span {
+    height: 8px;
+    width: 8px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+    animation: bounce 1.4s infinite ease-in-out both;
+  }
+  
+  .typing-indicator span:nth-of-type(2) {
+    animation-delay: -0.32s;
+  }
+  
+  .typing-indicator span:nth-of-type(3) {
+    animation-delay: -0.16s;
+  }
+  
+  @keyframes bounce {
+    0%, 80%, 100% {
+      transform: scale(0);
+    }
+    40% {
+      transform: scale(1.0);
+    }
+  }
+  
+  .suggestion-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 0 5px;
+    margin-bottom: 15px;
+  }
+  
+  .suggestion-chip {
+    background-color: #f0ebe5;
+    border: 1px solid #dcd6cf;
+    color: #6f4e37;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .suggestion-chip:hover {
+    background-color: #e6ded4;
+  }
+
+  .mic-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    color: #555;
+    transition: all 0.3s ease;
+  }
+
+  .mic-btn:hover {
+    background-color: #e9e9e9;
+  }
+
+  .mic-btn.listening {
+    background-color: #dc3545; /* Red when listening */
+    color: white;
+    border-color: #c82333;
+  }
+
+  .chat-message p {
+    white-space: pre-wrap; /* This will render the newlines in the help text */
+  }

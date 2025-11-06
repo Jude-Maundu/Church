@@ -224,7 +224,7 @@ p {
 }
 
 .logo-text {
-  color: #6f4e37;
+  color: #fff; /* Changed to white */
   font-family: "Playfair Display", serif;
   font-size: 1.3rem;
   letter-spacing: 1px;
@@ -237,20 +237,20 @@ p {
 
 /* Navbar links */
 .nav-link {
-  color: #6f4e37 !important;
+  color: #fff !important; /* Changed to white */
   font-weight: 500;
   cursor: pointer;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-link:hover {
-  color: #b8860b !important;
+  color: #ffd700 !important; /* Brighter gold on hover */
   transform: translateY(-2px);
 }
 
 /* Active link */
 .nav-link.active {
-  color: #b8860b !important;
+  color: #ffd700 !important; /* Brighter gold for active link */
   font-weight: 600;
 }
 

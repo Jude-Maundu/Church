@@ -72,24 +72,19 @@ const Home = () => {
   return (
     <div id="home">
       {/* Hero Banner */}
-      <section className="home-hero d-flex flex-column align-items-center justify-content-center text-center">
-        <div className="hero-content mt-3 p-4 rounded-4 shadow-lg">
-          <h1 className="fw-bold mb-3 display-4 text-dark">
-            {content?.home?.heroTitle || "Welcome to St John the Evangelist Parish"}
-          </h1>
-          <p className="lead mb-0 text-dark">
-            {content?.home?.heroSubtitle || "A place of worship, community, and growth. Join us in celebrating faith, hope, and love through our services, events, and fellowship."}
-          </p>
-          <div className="mt-4">
-            <Link to="/about" className="btn btn-light me-3 px-4 py-2 hero-btn">
-              <i className="fas fa-info-circle me-2"></i> Learn More
-            </Link>
-            <Link to="/events" className="btn btn-dark px-4 py-2 hero-btn">
-              Upcoming Events
-            </Link>
-          </div>
-        </div>
-      </section>
+     <section className="home-hero d-flex flex-column align-items-center justify-content-center text-center py-5">
+  <div className="hero-content mt-3 p-5 rounded-5 shadow-lg" 
+       style={{ maxWidth: '800px', border: '1px solid rgba(0,0,0,0.1)' }}>
+    <h1 className="fw-bold mb-4 display-4 text-dark" 
+        style={{ lineHeight: '1.2' }}>
+      {content?.home?.heroTitle || "Welcome to St John the Evangelist Parish"}
+    </h1>
+    <p className="lead mb-0 text-dark" style={{ lineHeight: '1.8' }}>
+      {content?.home?.heroSubtitle || "A place of worship, community, and growth. Join us in celebrating faith, hope, and love through our services, events, and fellowship."}
+    </p>
+  </div>
+</section>
+
 
       {/* Mass Schedule + Latest Masses Section */}
       <section className="container py-5">
